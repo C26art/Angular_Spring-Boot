@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { Product } from 'src/app/models/Product';
-import { ProductService } from '../../services/product.service';
 import { Location } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { NonNullableFormBuilder } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute } from '@angular/router';
+import { Product } from 'src/app/models/Product';
+
+import { ProductService } from '../../../services/product.service';
 
 @Component({
   selector: 'app-product-form',
@@ -26,10 +28,23 @@ export class ProductFormComponent implements OnInit{
       phone: [''],
   });
 
-  constructor(private formBuilder: NonNullableFormBuilder, private productService: ProductService, private snackBar: MatSnackBar, private location: Location) { }
+  constructor(private formBuilder: NonNullableFormBuilder, private productService: ProductService, private snackBar: MatSnackBar, private location: Location, private route: ActivatedRoute) { }
 
   ngOnInit(): void {  
-      
+    const product: Product = this.route.snapshot.data['product'];
+    this.formProduct.setValue({
+      _id: product._id,
+      name: product.name,
+      amount: product.amount,
+      purchasePrice: product.purchasePrice,
+      percentage: product.percentage,
+      saleValue: product.saleValue,
+      category: product.category,
+      supplier: product.supplier,
+      corporateName: product.corporateName,
+      cnpj: product.cnpj,
+      phone: product.phone,
+    });      
   }
 
   onSubmit() {

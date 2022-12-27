@@ -25,12 +25,12 @@ import { AppComponent } from './app.component';
 import { FooterComponent } from './components/template/footer/footer.component';
 import { HeaderComponent } from './components/template/header/header.component';
 import { NavComponent } from './components/template/nav/nav.component';
-import { ProductComponent } from './product/product/product.component';
+import { ProductComponent } from './product/containers/product/product.component';
 import { SharedModule } from './shared/shared.module';
 import { HomeComponent } from './views/home/home.component';
 import { LoginComponent } from './views/login/login.component';
-import { ProductFormComponent } from './product/product-form/product-form.component';
-import { ProductListComponent } from './product/product-list/product-list.component';
+import { ProductFormComponent } from './product/containers/product-form/product-form.component';
+import { ProductListComponent } from './product/componentsGroup/product-list/product-list.component';
 
 @NgModule({
     declarations: [

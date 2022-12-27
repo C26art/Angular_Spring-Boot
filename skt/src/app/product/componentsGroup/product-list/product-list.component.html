@@ -68,11 +68,11 @@
     </mat-header-cell>
 
     <mat-cell *matCellDef="let product" class="action-column">
-      <button mat-icon-button color="primary" aria-label="edit product">
+      <button (click)="onEdit(product)" mat-icon-button color="primary" aria-label="edit product">
         <mat-icon>edit</mat-icon>
       </button>
 
-      <button mat-icon-button color="warn" aria-label="Remove Product">
+      <button type="submit" (click)="onDelete(product)" mat-icon-button color="warn" aria-label="Remove Product">
         <mat-icon>delete</mat-icon>
       </button>
     </mat-cell>
