@@ -28,8 +28,11 @@
 
   <ng-container matColumnDef="category">
     <mat-header-cell *matHeaderCellDef>Category</mat-header-cell>
-    <mat-cell *matCellDef="let product">{{ product.category }}
-      <mat-icon aria-hidden="false" aria-label="Product Category">{{ product.category | category }}</mat-icon>
+    <mat-cell *matCellDef="let product"
+      >{{ product.category }}
+      <mat-icon aria-hidden="false" aria-label="Product Category">{{
+        product.category | category
+      }}</mat-icon>
     </mat-cell>
   </ng-container>
 
@@ -57,7 +60,9 @@
 
   <ng-container matColumnDef="actions">
     <mat-header-cell *matHeaderCellDef class="action-column">
-      <button type="submit" (click)="onAdd()"
+      <button
+        type="submit"
+        (click)="onAdd()"
         mat-mini-fab
         color="accent"
         aria-label="Add a Product"
@@ -68,11 +73,22 @@
     </mat-header-cell>
 
     <mat-cell *matCellDef="let product" class="action-column">
-      <button (click)="onEdit(product)" mat-icon-button color="primary" aria-label="edit product">
+      <button
+        (click)="onEdit(product)"
+        mat-icon-button
+        color="primary"
+        aria-label="edit product"
+      >
         <mat-icon>edit</mat-icon>
       </button>
 
-      <button type="submit" (click)="onDelete(product)" mat-icon-button color="warn" aria-label="Remove Product">
+      <button
+        type="submit"
+        (click)="onDelete(product)"
+        mat-icon-button
+        color="warn"
+        aria-label="Remove Product"
+      >
         <mat-icon>delete</mat-icon>
       </button>
     </mat-cell>
